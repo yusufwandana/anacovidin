@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hello Bulma!</title>
+    <title>Anacovidin</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
-    {{-- <link rel="stylesheet" media="screen and (min-device-width:768px)" href="https://unpkg.com/aos@2.3.1/dist/aos.css"> --}}
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <link href="http://fonts.cdnfonts.com/css/cheddar-gothic-stencil" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('css/all.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/main.css')}}">
     <link rel="stylesheet" type="text/css" media="screen and (min-device-width:768px)" href="{{asset('css/web.css')}}">
@@ -19,7 +19,7 @@
         <div class="container">
             <div class="navbar-brand">
               <a class="navbar-item" href="#">
-                <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
+                <span class="nameApp">AnaCovidIn</span>
               </a>
               <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
                 <span aria-hidden="true"></span>
@@ -52,7 +52,7 @@
                 <p class="subtitle hero-subtitle">
                     Menampilkan data terbaru mengenai kasus penyebaran COVID-19. Wujudkan Indonesia bebas dari wabah COVID-19 dengan cara menerapkan <i>new normal</i> tanpa meremehkan protokol kesehatan.
                 </p>
-                <button class="button is-light" style="width:130px;"><p class="heading button-title">Mulai</p></button>
+                <a class="button is-light" href="#data" style="width:130px;"><p class="heading button-title">Mulai</p></a>
               </div>
             </div>
           </div>
@@ -64,7 +64,7 @@
           <div class="container">
             <div class="columns has-text-centered">
                 <div class="column" data-aos="zoom-in">
-                    <h1 class="heading section-title mt-3">Total Kasus <u class="text-red">COVID-19</u> di Indonesia</h1>
+                    <h1 class="heading section-title mt-5">Total Kasus <u class="text-red">COVID-19</u> di Indonesia</h1>
                 </div>
             </div>
             <div class="columns has-text-centered my-3">
@@ -92,8 +92,6 @@
           </div>
       </section>
 
-      {{-- <div class="container"><hr></div> --}}
-
       {{-- Tabel Detail --}}
       <section class="section">
         <div class="container">
@@ -106,7 +104,6 @@
                 <div class="column table-res" data-aos="zoom-in">
                     <table class="">
                         <tr>
-                            {{-- <th>No</th> --}}
                             <th>Provinsi</th>
                             <th>Positif</th>
                             <th>Sembuh</th>
@@ -114,7 +111,6 @@
                         </tr>
                         @foreach ($detailData as $item)
                         <tr>
-                            {{-- <td>#</td> --}}
                             <td>{{$item['attributes']['Provinsi']}}</td>
                             <td>{{$item['attributes']['Kasus_Posi']}}</td>
                             <td>{{$item['attributes']['Kasus_Semb']}}</td>
@@ -132,7 +128,7 @@
           <div class="container">
             <div class="columns" data-aos="zoom-in">
                 <div class="column mx-2 has-text-centered">
-                    <h1 class="heading section-title mt-3">Grafik Kasus <u class="text-red">Positif</u> per Provinsi</h1>
+                    <h1 class="heading section-title mt-5">Grafik Kasus <u class="text-red">Positif</u> per Provinsi</h1>
                 </div>
             </div>
             <div class="columns">
@@ -148,7 +144,7 @@
         <div class="container">
             <div class="columns">
                 <div class="column mx-2 has-text-centered">
-                    <h1 class="heading section-title mt-3" data-aos="fade-in">Patuhi Protokol <u class="text-green">Kesehatan</u></h1>
+                    <h1 class="heading section-title mt-5" data-aos="fade-in">Patuhi Protokol <u class="text-green">Kesehatan</u></h1>
                 </div>
             </div>
             <div class="columns">
@@ -185,7 +181,7 @@
                     </div>
                 </div>
             </div>
-            <div class="columns">
+            <div class="columns pb-5 mb-5">
                 <div class="column mx-2">
                     <div class="card box-radius" data-aos="fade-up-right">
                         <div class="card-content">
@@ -223,10 +219,9 @@
       {{-- Footer --}}
       <footer class="footer">
         <div class="content has-text-centered">
-          <p>
-            <strong>Bulma</strong> by <a href="https://jgthms.com">Jeremy Thomas</a>. The source code is licensed
-            <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
-          </p>
+            Total Pengunjung : {{$totalVisitor}}
+          <strong></strong>
+          <p><strong>Copyright</strong> &copy; 2021 <a href="#"><strong>Anacovidin</strong></a>. All Rights Reserved.</p>
         </div>
       </footer>
 
@@ -268,8 +263,7 @@
       </script>
       <script>
           $(document).ready(function(){
-            $('.chartjs-render-monitor').css('height', '800px');
-            // $('.chartjs-render-monitor').css('width', '1500px');
+            $('.chartjs-render-monitor').css('height', '500px');
           });
       </script>
       {{ $chart->script() }}

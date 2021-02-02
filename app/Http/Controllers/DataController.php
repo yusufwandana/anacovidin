@@ -6,11 +6,13 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Request;
 use App\Charts\CovidChart;
+use App\Models\Visitor;
 
 class DataController extends Controller
 {
     public function index()
     {
+
         // Total keseluruhan kasus Covid-19 di Indonesia
         $totalIndonesia = Http::get('https://api.kawalcorona.com/indonesia');
         $data = $totalIndonesia->json();
@@ -32,7 +34,16 @@ class DataController extends Controller
         $chart->dataset('Kasus Positif Tertinggi', 'horizontalBar', $positifCase)->backgroundColor($colors);
         // End
 
+        // Update Visitor
+        $cekVisitor = Visitor::all()->count();
+        if ($cekVisitor == 0) {
+            Visitor::create(['total_visitor' => 1]);
+        }else{
+            $visitor = Visitor::whereId(1)->first();
+            $visitor->update(['total_visitor' => $visitor->total_visitor+1]);
+        }
+        $totalVisitor = Visitor::whereId(1)->first()->total_visitor;
 
-        return view('welcome', compact('data', 'chart', 'detailData'));
+        return view('welcome', compact('data', 'chart', 'detailData', 'totalVisitor'));
     }
 }

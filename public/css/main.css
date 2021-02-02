@@ -6,6 +6,11 @@ body{
     overflow-x: hidden;
 }
 
+.nameApp{
+    font-family: 'Cheddar Gothic Stencil', sans-serif;
+    font-size:32px;
+}
+
 .button-title{
     font-size: 17px;
     font-weight: 700;
