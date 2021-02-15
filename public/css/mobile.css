@@ -15,3 +15,8 @@
 .hero-subtitle{
     font-size: 18px;
 }
+
+.detailButton{
+    margin-top:50px;
+    display: none;
+}

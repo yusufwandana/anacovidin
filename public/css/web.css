@@ -11,3 +11,12 @@
     font-size:28px;
     font-weight: bold;
 }
+
+.margTopSection{
+    margin-top: 100px;
+}
+
+.detailButton{
+    margin-top:60px;
+    margin-bottom:70px;
+}

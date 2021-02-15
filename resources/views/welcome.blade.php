@@ -29,11 +29,11 @@
             </div>
 
             <div id="navbarBasicExample" class="navbar-menu">
-              <div class="navbar-start ">
-                <a class="navbar-item" href="#home">Home</a>
-                <a class="navbar-item" href="#data">Data</a>
-                <a class="navbar-item" href="#statistik">Statistik</a>
-                <a class="navbar-item" href="#protokol">Protokol Kesehatan</a>
+              <div class="navbar-end">
+                <a class="navbar-item mr-5" href="#home">Home</a>
+                <a class="navbar-item mr-5" href="#data">Data</a>
+                <a class="navbar-item mr-5" href="#statistik">Statistik</a>
+                <a class="navbar-item mr-5" href="#protokol">Protokol</a>
               </div>
             </div>
         </div>
@@ -59,11 +59,11 @@
         </div>
       </section>
 
-      {{-- Total Cases --}}
       <section class="section" id="data" style="">
-          <div class="container">
+        <div class="container">
+            {{-- <br><br><br><br> --}}
             <div class="columns has-text-centered">
-                <div class="column" data-aos="zoom-in">
+                <div class="column margTopSection" data-aos="zoom-in">
                     <h1 class="heading section-title mt-5">Total Kasus <u class="text-red">COVID-19</u> di Indonesia</h1>
                 </div>
             </div>
@@ -89,15 +89,21 @@
                     <p class="title">{{$data[0]['meninggal']}}</p>
                 </div>
             </div>
-          </div>
+            <div class="columns has-text-centered">
+                <div class="column detailButton">
+                    <a href="#detail" class="button is-dark">Lihat Detail</a>
+                </div>
+            </div>
+            {{-- <br><br><br><br><br><br> --}}
+        </div>
       </section>
 
       {{-- Tabel Detail --}}
-      <section class="section">
+      <section class="section bg-abu" id="detail">
         <div class="container">
             <div class="columns has-text-centered">
                 <div class="column" data-aos="zoom-in">
-                    <h1 class="heading section-title mt-3">Detail Kasus <u class="text-red">COVID-19</u> per Provinsi</h1>
+                    <h1 class="heading section-title mt-5">Detail Kasus <u class="text-red">COVID-19</u> per Provinsi</h1>
                 </div>
             </div>
             <div class="columns">
