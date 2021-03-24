@@ -11,6 +11,8 @@
     <link rel="stylesheet" type="text/css" href="{{asset('css/main.css')}}">
     <link rel="stylesheet" type="text/css" media="screen and (min-device-width:768px)" href="{{asset('css/web.css')}}">
     <link rel="stylesheet" type="text/css" media="screen and (max-device-width:769px)" href="{{asset('css/mobile.css')}}">
+    {{-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.1/css/bulma.min.css">
+    <link rel="stylesheet" href="text/css" href="https://cdn.datatables.net/1.10.24/css/dataTables.bulma.min.css"> --}}
   </head>
   <body>
 
@@ -44,10 +46,10 @@
         <div class="hero-body home">
           <div class="container">
             <div class="columns">
-               <div class="column is-two-fifths" data-aos="fade-down-right">
+               <div class="column is-two-fifths" data-aos="fade-down-right" data-aos-duration="800" data-aos-delay="300">
                     <img class="img-doctor-virus animated bounce" src="{{asset('img/doctor-virus.png')}}" alt="">
               </div>
-              <div class="column" data-aos="fade-down-left">
+              <div class="column" data-aos="fade-down-left" data-aos-duration="800" data-aos-delay="300">
                 <h1 class="heading hero-title hero-text">Informasi <u class="text-red">Virus Corona</u> di Indonesia</h1>
                 <p class="subtitle hero-subtitle">
                     Menampilkan data terbaru mengenai kasus penyebaran COVID-19. Wujudkan Indonesia bebas dari wabah COVID-19 dengan cara menerapkan <i>new normal</i> tanpa meremehkan protokol kesehatan.
@@ -61,36 +63,35 @@
 
       <section class="section" id="data" style="">
         <div class="container">
-            {{-- <br><br><br><br> --}}
             <div class="columns has-text-centered">
-                <div class="column margTopSection" data-aos="zoom-in">
+                <div class="column margTopSection" data-aos="zoom-in" data-aos-duration="500" data-aos-delay="200">
                     <h1 class="heading section-title mt-5">Total Kasus <u class="text-red">COVID-19</u> di Indonesia</h1>
                 </div>
             </div>
             <div class="columns has-text-centered my-3">
-                <div class="column mx-2" data-aos="fade-right">
+                <div class="column mx-2" data-aos="fade-right" data-aos-duration="600" data-aos-delay="300">
                     <i class="fas fa-viruses pb-3" style="font-size:5em; color:red;"></i>
                     <p class="heading icon-text my-3">Positif</p>
                     <p class="title">{{$data[0]['positif']}}</p>
                 </div>
-                <div class="column mx-2" data-aos="fade-right">
+                <div class="column mx-2" data-aos="fade-right" data-aos-duration="600" data-aos-delay="400">
                     <i class="fas fa-heartbeat pb-3" style="font-size:5em; color:green;"></i>
                     <p class="heading my-3 icon-text">Sembuh</p>
                     <p class="title">{{$data[0]['sembuh']}}</p>
                 </div>
-                <div class="column mx-2" data-aos="fade-left">
+                <div class="column mx-2" data-aos="fade-right" data-aos-duration="600" data-aos-delay="500">
                     <i class="fas fa-procedures pb-3" style="font-size:5em; color:orange;"></i>
                     <p class="heading my-3 icon-text">Dirawat</p>
                     <p class="title">{{$data[0]['dirawat']}}</p>
                 </div>
-                <div class="column mx-2" data-aos="fade-left">
+                <div class="column mx-2" data-aos="fade-right" data-aos-duration="600" data-aos-delay="600">
                     <i class="fas fa-ambulance pb-3" style="font-size:5em; color:red;"></i>
                     <p class="heading my-3 icon-text">Meninggal</p>
                     <p class="title">{{$data[0]['meninggal']}}</p>
                 </div>
             </div>
             <div class="columns has-text-centered">
-                <div class="column detailButton">
+                <div class="column detailButton" data-aos="fade-up" data-aos-duration="600" data-aos-delay="700">
                     <a href="#detail" class="button is-dark">Lihat Detail</a>
                 </div>
             </div>
@@ -108,7 +109,7 @@
             </div>
             <div class="columns">
                 <div class="column table-res" data-aos="zoom-in">
-                    <table class="">
+                    <table class="table" id="mytable">
                         <tr>
                             <th>Provinsi</th>
                             <th>Positif</th>
@@ -132,13 +133,13 @@
       {{-- Statistik --}}
       <section class="section bg-abu" id="statistik">
           <div class="container">
-            <div class="columns" data-aos="zoom-in">
-                <div class="column mx-2 has-text-centered">
+            <div class="columns">
+                <div class="column mx-2 has-text-centered" data-aos="zoom-in" data-aos-delay="100" data-aos-duration="500">
                     <h1 class="heading section-title mt-5">Grafik Kasus <u class="text-red">Positif</u> per Provinsi</h1>
                 </div>
             </div>
-            <div class="columns">
-                <div class="column mx-2" data-aos="zoom-in-down">
+            <div class="columns" data-aos="zoom-in-up" data-aos-delay="300" data-aos-duration="500">
+                <div class="column mx-2">
                     {{ $chart->container() }}
                 </div>
             </div>
@@ -150,12 +151,14 @@
         <div class="container">
             <div class="columns">
                 <div class="column mx-2 has-text-centered">
-                    <h1 class="heading section-title mt-5" data-aos="fade-in">Patuhi Protokol <u class="text-green">Kesehatan</u></h1>
+                    <h1 class="heading section-title mt-5" data-aos="fade-in" data-aos-delay="300" data-aos-duration="500">
+                        Patuhi Protokol <u class="text-green">Kesehatan</u>
+                    </h1>
                 </div>
             </div>
             <div class="columns">
                 <div class="column mx-2">
-                    <div class="card box-radius" data-aos="fade-down-right">
+                    <div class="card box-radius" data-aos="fade-right" data-aos-delay="400" data-aos-duration="500">
                         <div class="card-content">
                             <div class="columns">
                                 <div class="column is-half">
@@ -170,7 +173,7 @@
                     </div>
                 </div>
                 <div class="column mx-2">
-                    <div class="card box-radius" data-aos="fade-down-left">
+                    <div class="card box-radius" data-aos="fade-left" data-aos-delay="500" data-aos-duration="500">
                         <div class="card-content">
                             <div class="columns">
                                 <div class="column is-half has-text-justified">
@@ -189,7 +192,7 @@
             </div>
             <div class="columns pb-5 mb-5">
                 <div class="column mx-2">
-                    <div class="card box-radius" data-aos="fade-up-right">
+                    <div class="card box-radius" data-aos="fade-right" data-aos-delay="800" data-aos-duration="500">
                         <div class="card-content">
                             <div class="columns">
                                 <div class="column is-half">
@@ -204,7 +207,7 @@
                     </div>
                 </div>
                 <div class="column mx-2">
-                    <div class="card box-radius" data-aos="fade-up-left">
+                    <div class="card box-radius" data-aos="fade-left" data-aos-delay="700" data-aos-duration="500">
                         <div class="card-content">
                             <div class="columns">
                                 <div class="column is-half">
@@ -261,9 +264,10 @@
         });
       </script>
       <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-      {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/6.0.6/highcharts.js" charset="utf-8"></script> --}}
       <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js" charset="utf-8"></script>
       <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+      {{-- <script type="text/javascript" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+      <script type="text/javascript" src="https://cdn.datatables.net/1.10.24/js/dataTables.bulma.min.js"></script> --}}
       <script>
         AOS.init();
       </script>

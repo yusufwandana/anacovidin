@@ -34,7 +34,7 @@ class DataController extends Controller
         $chart->dataset('Kasus Positif Tertinggi', 'horizontalBar', $positifCase)->backgroundColor($colors);
         // End
 
-        // Update Visitor
+        // Update Jumlah Visitor
         $cekVisitor = Visitor::all()->count();
         if ($cekVisitor == 0) {
             Visitor::create(['total_visitor' => 1]);
